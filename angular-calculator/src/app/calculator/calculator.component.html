@@ -4,5 +4,10 @@
         <input type="text" [value]="currentInput" readonly>
       </div>
 
-    
+    <div class="buttons">
+      <button (click)="clear()">C</button>
+      <button (click)="getOperation('/')">/</button>
+      <button (click)="getOperation('*')">*</button>
+      <button (click)="getOperation('-')">-</button>
+    </div>
 </div>
