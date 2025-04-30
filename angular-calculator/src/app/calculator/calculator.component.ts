@@ -21,4 +21,43 @@ export class CalculatorComponent {
         }
       }
 
+      getDecimal() {
+        if (!this.currentInput.includes('.')) {
+          this.currentInput += '.';
+        }
+      }
+    
+      private doCalculation(op: string, secondOp: number) {
+        switch (op) {
+          case '+':
+            return this.firstOperand! + secondOp;
+          case '-':
+            return this.firstOperand! - secondOp;
+          case '*':
+            return this.firstOperand! * secondOp;
+          case '/':
+            return this.firstOperand! / secondOp;
+          default:
+            return secondOp;
+        }
+      }
+    
+      public getOperation(op: string) {
+        if (this.firstOperand === null) {
+          this.firstOperand = Number(this.currentInput);
+        } else if (this.operator) {
+          const result = this.doCalculation(this.operator, Number(this.currentInput));
+          this.currentInput = String(result);
+          this.firstOperand = result;
+        }
+        this.operator = op;
+        this.waitForSecondNumber = true;
+      }
+    
+      public clear() {
+        this.currentInput = '0';
+        this.firstOperand = null;
+        this.operator = null;
+        this.waitForSecondNumber = false;
+      }
 }
