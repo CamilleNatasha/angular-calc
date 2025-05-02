@@ -37,6 +37,8 @@ export class CalculatorComponent {
             return this.firstOperand! * secondOp;
           case '/':
             return this.firstOperand! / secondOp;
+          case '^':
+            return Math.pow(this.firstOperand!, secondOp);
           default:
             return secondOp;
         }
@@ -54,10 +56,31 @@ export class CalculatorComponent {
         this.waitForSecondNumber = true;
       }
     
-      public clear() {
-        this.currentInput = '0';
-        this.firstOperand = null;
-        this.operator = null;
-        this.waitForSecondNumber = false;
+      // Advanced functions
+      public calculatePercentage() {
+        if (this.firstOperand !== null && this.operator) {
+          const percentage = this.firstOperand * (Number(this.currentInput) / 100);
+          this.currentInput = String(percentage);
+          this.waitForSecondNumber = true;
+        } else {
+          this.currentInput = String(Number(this.currentInput) / 100);
+        }
       }
+
+      public calculateSquareRoot() {
+        this.currentInput = String(Math.sqrt(Number(this.currentInput)));
+      }
+
+      public calculatePower() {
+        this.currentInput = String(Math.pow(Number(this.currentInput), 2));
+      }
+
+      public calculateInverse() {
+        this.currentInput = String(1 / Number(this.currentInput));
+      }
+
+      public toggleSign() {
+        this.currentInput = String(-Number(this.currentInput));
+      }
+
 }
