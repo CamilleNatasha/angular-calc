@@ -54,3 +54,16 @@
   .zero {
     grid-column: span 2;
   }
+
+/* Style for adavnced functions */
+
+button:nth-child(-n+4) {
+  background-color: #d9d9d9;
+}
+
+button:nth-child(5),
+button:nth-child(9),
+button:nth-child(13),
+button:nth-child(17) {
+  background-color: #d9d9d9;
+}

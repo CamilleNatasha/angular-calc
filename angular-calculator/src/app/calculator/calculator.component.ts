@@ -11,6 +11,7 @@ export class CalculatorComponent {
   firstOperand: number | null = null;
   operator: string | null = null;
   waitForSecondNumber = false;
+  memory: number=0;
 
       public getNumber(v: string) {
         if (this.waitForSecondNumber) {
@@ -83,4 +84,20 @@ export class CalculatorComponent {
         this.currentInput = String(-Number(this.currentInput));
       }
 
+      //Memory functions
+    public memoryAdd() {
+      this.memory += Number(this.currentInput);
+    }
+
+    public memorySubtract() {
+      this.memory -= Number(this.currentInput);
+    }
+
+    public memoryRecall() {
+      this.currentInput = String(this.memory);
+    }
+
+    public memoryClear () {
+      this.memory = 0;
+    }
 }

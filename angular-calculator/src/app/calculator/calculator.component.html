@@ -2,29 +2,39 @@
 
     <div class="display">
         <input type="text" [value]="currentInput" readonly>
+        <div class="memory-display" *ngIf="memory !== 0">M: {{memory}}</div>
       </div>
 
     <div class="buttons">
-      <button (click)="clear()">C</button>
-      <button (click)="getOperation('/')">/</button>
-      <button (click)="getOperation('*')">*</button>
-      <button (click)="getOperation('-')">-</button>
+      <!--Memory functions-->
 
+      <!--Advanced functions-->
+      <button (click)="clear()">C</button>
+      <button (click)="clearEntry()">CE</button>
+      <button (click)="calculatePercentage()">%</button>
+      <button (click)="getOperation('/')">/</button>
+      
+      <button (click)="calculateSquareRoot()">√</button>
       <button (click)="getNumber('7')">7</button>
       <button (click)="getNumber('8')">8</button>
       <button (click)="getNumber('9')">9</button>
-      <button (click)="getOperation('+')" class="plus">+</button>
+      <button (click)="getOperation('*')">×</button>
       
+      <button (click)="calculatePower()">x²</button>
       <button (click)="getNumber('4')">4</button>
       <button (click)="getNumber('5')">5</button>
       <button (click)="getNumber('6')">6</button>
+      <button (click)="getOperation('-')">-</button>
       
+      <button (click)="calculateInverse()">1/x</button>
       <button (click)="getNumber('1')">1</button>
       <button (click)="getNumber('2')">2</button>
       <button (click)="getNumber('3')">3</button>
-      <button (click)="getOperation('=')" class="equals">=</button>
-
+      <button (click)="getOperation('+')" class="plus">+</button>
+      
+      <button (click)="toggleSign()">±</button>
       <button (click)="getNumber('0')" class="zero">0</button>
       <button (click)="getDecimal()">.</button>
+      <button (click)="getOperation('=')" class="equals">=</button>
     </div>
 </div>
