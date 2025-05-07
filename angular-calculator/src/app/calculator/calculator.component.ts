@@ -100,4 +100,15 @@ export class CalculatorComponent {
     public memoryClear () {
       this.memory = 0;
     }
+
+    public clear() {
+      this.currentInput = '0';
+      this.firstOperand = null;
+      this.operator = null;
+      this.waitForSecondNumber = false;
+    }
+  
+    public clearEntry() {
+      this.currentInput = '0';
+    }
 }
